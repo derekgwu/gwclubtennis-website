@@ -1,2 +1,5 @@
-# gwclubtennis-website
-GW Club Tennis Website
+# Official GW Club Tennis Website
+
+Designed by Derek Chen
+
+## How to Spin Up Locally
