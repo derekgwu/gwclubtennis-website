@@ -1,6 +1,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  margin:0;
+  padding: 0;
+  --delft-blue: #1a2d5e;
+  --payne-grey: #4d6180;
+  --indigo-dye: #154464;
 }
 
 @media (prefers-color-scheme: dark) {

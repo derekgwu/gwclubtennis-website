@@ -1,0 +1,58 @@
+.main-header-div{
+    height: 80vh;
+    background: white;
+    display: flex;
+
+}
+
+.main-text-side{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+}
+
+.main-image-side{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+
+}
+
+.dot-grid {
+    width: 300px;
+    height: 300px;
+    background-image: radial-gradient(circle, #1a2d5e 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+.main-text{
+    background: linear-gradient(var(--delft-blue), var(--indigo-dye));
+    width: 75%;
+    border-radius: 10px;
+    padding: 10%;
+    box-shadow: 
+  0 2px 4px rgba(26, 45, 94, 0.08),
+  0 4px 12px rgba(26, 45, 94, 0.12);
+}
+.main-text h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 100px;
+    color: white;
+}
+
+.main-text p{
+    color: white;
+    font-size: 20px;
+}
+
+.content-area1{
+    background: linear-gradient(45deg, var(--indigo-dye), var(--delft-blue));
+    height: 100vh;
+
+}
