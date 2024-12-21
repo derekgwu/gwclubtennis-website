@@ -5,7 +5,7 @@ import "./home.css";
 import Navbar from "./components/Navbar";
 import { PiTennisBallFill } from "react-icons/pi";
 import { GiTennisRacket } from "react-icons/gi";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   useEffect(() => {
@@ -38,6 +38,7 @@ export default function Home() {
   const [clubPicHeight, setClubPicHeight] = useState(0);
   const [headerTextSize, setHeaderTextSize] = useState(0);
   const [mainPTextSize, setMainPTextSize] = useState(0);
+  const [instaSize, setInstaSize] = useState(0);
   const updateDimensions = () => {
       setWidth(window.innerWidth);
       setHeight(window.innerHeight);
@@ -49,8 +50,9 @@ export default function Home() {
     console.log(height);
     setHeaderTextSize(height * 0.05);
     setMainPTextSize(height * 0.025);
+    setInstaSize(height * 0.66);
     
-  }, [window, height]);
+  }, [window, width, height]);
 
 
   useEffect(() => {
@@ -60,13 +62,61 @@ export default function Home() {
 
   const pathing_1 = "M 0,5 C 5,0 10,10 15,5 C 20,0 25,10 30,5 C 35,0 40,10 45,5 C 50,0 55,10 60,5 C 65,0 70,10 75,5 C 80,0 85,10 90,5 C 95,0 100,10 100,5"
 
+  const [isVisible, setIsVisible] = useState(false);
+  const fadeRef = useRef(null);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    },
+    {
+      threshold: 0.1, // Trigger when 10% of the element is visible
+    }
+  );
+
+  //main header
+  useEffect(() => {
+    if (fadeRef.current) {
+      observer.observe(fadeRef.current);
+    }
+
+    return () => {
+      if (fadeRef.current) {
+        observer.unobserve(fadeRef.current);
+      }
+    };
+  }, []);
+
+
+  //main images 
+  const imagesRef = useRef(null);
+  useEffect(() => {
+    if (imagesRef.current) {
+      observer.observe(fadeRef.current);
+    }
+
+    return () => {
+      if (imagesRef.current) {
+        observer.unobserve(fadeRef.current);
+      }
+    };
+  }, []);
+
+
+
 
 
   return (
     <div>
       <Navbar/>
       <div className="main-header-div">
-        <div className="main-text-side">
+        <div className="main-text-side" ref={fadeRef} 
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0)" : "translateY(20px)",
+          transition: "opacity 0.6s ease-out, transform 0.6s ease-out",}}
+        >
           <div className="main-text">
             <h2 className="main-text-h2" style={{fontSize: headerTextSize}}>GW Club Tennis</h2>
             <p className="main-text-p" style={{fontSize: mainPTextSize}}>GW Club Tennis was founded in 2005. It is a coed team that 
@@ -75,7 +125,11 @@ export default function Home() {
               developing their game throughout college.</p>
           </div>
         </div>
-        <div className="main-image-side">
+        <div className="main-image-side" ref={imagesRef}
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+        }}>
           <div className="dot-grid"></div>
           <Image className="clubpic1" src="/IMG_3647.jpg" width={clubPicwidth} height={clubPicHeight} alt="Picture of the author"/>
           <Image className="clubpic2" src="/IMG_3648.jpg" width={clubPicwidth} height={clubPicHeight} alt="Picture of the author"/>
@@ -121,7 +175,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="socials">
+      <div className="socials" id="socials">
         <div className="instagram-connect">
         <blockquote
           className="instagram-media"
@@ -135,6 +189,7 @@ export default function Home() {
             margin: "1px",
             maxWidth: "540px",
             minWidth: "326px",
+            height: instaSize,
             padding: "0",
             width: "calc(100% - 2px)",
           }}

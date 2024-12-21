@@ -14,10 +14,28 @@
 .nav-link{
     
     border-bottom: 1px solid var(--indigo-dye);
-    margin-right: 5%;
+    margin-right: 15%;
 }
 
 h2{
     font-weight:400;
     border-bottom: 2px var(--indigo-dye);
+}
+
+.links{
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
+    justify-content: space-between;
+  
+}
+
+.courtLogo{
+    transform: scale(3);
+    transition: all 0.3s;
+}
+
+.courtLogo:hover{
+    color: #AA9868;
+    transition: all 0.3s;
 }
