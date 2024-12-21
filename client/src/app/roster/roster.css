@@ -1,0 +1,25 @@
+.roster-div{
+    background-color: white;
+    min-height: 90vh;
+}
+
+.officers-div{
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.officers-div h2{
+    color: var(--indigo-dye);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    margin-bottom: 5%;
+}
+
+.officers-image{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -9,6 +9,7 @@ import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   useEffect(() => {
+    console.log(window);
     if (window.instgrm) {
       window.instgrm.Embeds.process();
     }
@@ -212,7 +213,7 @@ export default function Home() {
             fill="none"
             stroke="var(--indigo-dye)"
             strokeWidth="10"
-            strokelinecap="round"
+            strokeLinecap="round"
             strokeLinejoin="round"
             opacity="0.8"
           />

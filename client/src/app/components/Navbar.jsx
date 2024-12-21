@@ -14,10 +14,10 @@ export default function Navbar() {
      
       <div className="links">
         <div className="nav-link">
-            <h2>Home</h2>
+        <h2><a href="/">Home</a></h2>
         </div>
         <div className="nav-link">
-            <h2>Roster</h2>
+        <h2><a href="/roster">Roster</a></h2>
         </div>
         <div className="nav-link">
             <h2><a href="#socials">Socials</a></h2>
